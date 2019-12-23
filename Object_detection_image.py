@@ -4,6 +4,7 @@ import numpy as np
 import tensorflow as tf
 import pytesseract
 import sys
+import subprocess
 
 
 # This is needed since the notebook is stored in the object_detection folder.
@@ -111,6 +112,7 @@ print("Detected Number is:",text)
 cv2.imwrite('cropped image.jpg', cropped_img)
 cv2.imshow('cropped image.jpg', cropped_img)
 
+subprocess.call(["curl", "-X", "POST", "https://api.thebigbox.id/sms-notification/1.0.0/messages", "-H", "accept: application/x-www-form-urlencoded", "-H", "x-api-key:0SfuSsIzBSP5jGSdR3hwc04ZiZ5h4moA", "-H", "Content-Type: application/x-www-form-urlencoded", "-d", "msisdn=085695848790&content=jancok%s"%(str(text))])
 # Press any key to close the image
 cv2.waitKey(0)
 
