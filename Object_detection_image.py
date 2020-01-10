@@ -112,7 +112,7 @@ print("Detected Number is:",text)
 cv2.imwrite('cropped image.jpg', cropped_img)
 cv2.imshow('cropped image.jpg', cropped_img)
 
-subprocess.call(["curl", "-X", "POST", "https://api.thebigbox.id/sms-notification/1.0.0/messages", "-H", "accept: application/x-www-form-urlencoded", "-H", "x-api-key:0SfuSsIzBSP5jGSdR3hwc04ZiZ5h4moA", "-H", "Content-Type: application/x-www-form-urlencoded", "-d", "msisdn=085695848790&content=jancok%s"%(str(text))])
+subprocess.call([curl -X POST "https://api.thebigbox.id/sms-broadcast/1.0.0/send" -H "accept: application/json" -H "x-api-key: t2tNxEtL3S35h0Z83vy57pF9MiwDD3Yq" -H "Content-Type: application/json" -d "{ \"smsblast_username\": \"\", \"smsblast_password\": \"\", \"smsblast_senderid\": \"\", \"msisdns\": [ \"085695848790\" ], \"text\": \"anda melanggar marka dilarang parkir\"}"])
 # Press any key to close the image
 cv2.waitKey(0)
 
