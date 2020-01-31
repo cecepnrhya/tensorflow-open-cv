@@ -29,6 +29,7 @@ import argparse
 import pytesseract
 import sys
 import time
+import subprocess
 from PIL import Image
 
 # Set up camera constants
@@ -239,9 +240,23 @@ elif camera_type == 'usb':
       
         text = pytesseract.image_to_string(erosian, config='configr')
         print("Detected Number is:",text)
-        if text=='B 6014 NZY':
-                print('jakarta nich')
+        if text=='B-6014 NZY':
+                print('Nama Pemilik kendaraan: Cecep')
+                print('Jenis kendaraan: Vespa')
+                #break
+        #subprocess.call(["curl","-X" POST "https://api.thebigbox.id/sms-broadcast/1.0.0/send" -H "accept: application/json" -H "x-api-key: t2tNxEtL3S35h0Z83vy57pF9MiwDD3Yq" -H "Content-Type: application/json" -d "{ \"smsblast_username\": \"\", \"smsblast_password\": \"\", \"smsblast_senderid\": \"\", \"msisdns\": [ \"085695848790\" ], \"text\": \"melanggar\"}"]))])
+                subprocess.call(["curl", "-X", "POST", "https://api.thebigbox.id/sms-broadcast/1.0.0/send", "-H", "accept: application/json", "-H", "x-api-key: t2tNxEtL3S35h0Z83vy57pF9MiwDD3Yq", "-H", "Content-Type: application/json", "-d", "{ \"smsblast_username\": \"\", \"smsblast_password\": \"\", \"smsblast_senderid\": \"\", \"msisdns\": [ \"085695848790\" ], \"text\": \"melanggar\"}"])
                 break
+   #print("sukses")
+
+
+        # Press 'q' to quit
+        if cv2.waitKey(1) == ord('q'):
+            break
+
+    
+
+
             #rrbreak
 
         # Draw the results of the detection (aka 'visulaize the results')
@@ -282,4 +297,5 @@ elif camera_type == 'usb':
     
 
 cv2.destroyAllWindows()
+
 
