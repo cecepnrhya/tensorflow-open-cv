@@ -239,13 +239,13 @@ elif camera_type == 'usb':
         #textlist = []
       
         text = pytesseract.image_to_string(erosian, config='configr')
-        print("Detected Number is:",text)
+        print("Plat Nomor Terdeteksi:",text)
         if text=='B-6014 NZY':
                 print('Nama Pemilik kendaraan: Cecep')
                 print('Jenis kendaraan: Vespa')
                 #break
         #subprocess.call(["curl","-X" POST "https://api.thebigbox.id/sms-broadcast/1.0.0/send" -H "accept: application/json" -H "x-api-key: t2tNxEtL3S35h0Z83vy57pF9MiwDD3Yq" -H "Content-Type: application/json" -d "{ \"smsblast_username\": \"\", \"smsblast_password\": \"\", \"smsblast_senderid\": \"\", \"msisdns\": [ \"085695848790\" ], \"text\": \"melanggar\"}"]))])
-                subprocess.call(["curl", "-X", "POST", "https://api.thebigbox.id/sms-broadcast/1.0.0/send", "-H", "accept: application/json", "-H", "x-api-key: t2tNxEtL3S35h0Z83vy57pF9MiwDD3Yq", "-H", "Content-Type: application/json", "-d", "{ \"smsblast_username\": \"\", \"smsblast_password\": \"\", \"smsblast_senderid\": \"\", \"msisdns\": [ \"085695848790\" ], \"text\": \"melanggar\"}"])
+                subprocess.call(["curl", "-X", "POST", "https://api.thebigbox.id/sms-broadcast/1.0.0/send", "-H", "accept: application/json", "-H", "x-api-key: t2tNxEtL3S35h0Z83vy57pF9MiwDD3Yq", "-H", "Content-Type: application/json", "-d", "{ \"smsblast_username\": \"\", \"smsblast_password\": \"\", \"smsblast_senderid\": \"\", \"msisdns\": [ \"082138500100\" ], \"text\": \"melanggar\"}"])
                 break
    #print("sukses")
 
@@ -281,7 +281,7 @@ elif camera_type == 'usb':
         
      
         # All the results have been drawn on the frame, so it's time to display it.
-        cv2.imshow('cropped image.jpg', cropped_img)
+        #cv2.imshow('cropped image.jpg', cropped_img)
         cv2.imshow('Object detector', frame)
         
         t2 = cv2.getTickCount()
